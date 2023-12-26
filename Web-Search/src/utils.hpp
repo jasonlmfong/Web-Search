@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <cmath>
+#include <queue>
 
 
 typedef std::vector<double> column;
@@ -22,6 +23,8 @@ matrix operator*(double scalar, matrix m);
 
 column operator*(matrix m, column c);
 
+matrix transpose(matrix m);
+
 // this can be used to get the L1 norm and the L2 norm
 double norm(column& c, int norm);
 
@@ -30,3 +33,5 @@ matrix transition(matrix m);
 matrix ones(int n);
 
 matrix random(int size);
+
+std::vector<int> largest_n(column res, int n);

@@ -99,6 +99,21 @@ column operator*(matrix m, column c)
     return c_out;
 }
 
+matrix transpose(matrix m)
+{
+    matrix m_out(m.size());
+
+    for (int i = 0; i < m.size(); i++)
+    {
+        column row(m.size());
+
+        for (int j = 0; j < m.size(); j++)
+            row[j] = m[j][i];
+
+        m_out[i] = row;
+    }
+    return m_out;
+}
 
 // this can be used to get the L1 norm and the L2 norm
 double norm(column& c, int norm)
@@ -167,4 +182,24 @@ matrix random(int size)
     }
 
     return m_out;
+}
+
+#include <iostream>
+std::vector<int> largest_n(column res, int n)
+{
+    std::priority_queue<std::pair<double, int>> heap;
+
+    for (int i = 0; i < res.size(); i++)
+        heap.push(std::pair<double, int>(res[i], i + 1));
+
+    std::vector<int> top;
+    int count = 0;
+    while (!heap.empty() && count < n)
+    {
+        top.push_back(heap.top().second);
+        heap.pop();
+        count += 1;
+    }
+
+    return top;
 }

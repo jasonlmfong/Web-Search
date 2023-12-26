@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\hits.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\pagerank.cpp" />
     <ClCompile Include="src\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\hits.hpp" />
     <ClInclude Include="src\pagerank.hpp" />
     <ClInclude Include="src\utils.hpp" />
   </ItemGroup>
